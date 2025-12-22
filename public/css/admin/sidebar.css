@@ -1,0 +1,31 @@
+body {
+    background-color: #f9f9f9;
+}
+
+.sidebar-item {
+    list-style: none;
+}
+
+.sidebar-link {
+    text-decoration: none;
+}
+
+.main {
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+#sidebar {
+    max-width: 264px;
+    min-width: 264px;
+}
+
+#sidebar .sidebar-center {
+    background-color: #fff;
+    max-width: 200px;
+    min-width: 200px;
+    margin: auto;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+}
