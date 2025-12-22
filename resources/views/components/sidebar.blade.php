@@ -1,0 +1,44 @@
+@push('css')
+        <link rel="stylesheet" href="{{ asset('css/admin/sidebar.css') }}">
+    @endpush
+    <div class="d-flex">
+        <!-- sidebar -->
+        <aside id="sidebar">
+            <div class="sidebar-logo">
+                <a href="">Loan<span style="color:#540863;">ku</span></a>
+            </div>
+            <div class="sidebar-center">
+                <ul class="sidebar-nav p-0">
+                    <li class="sidebar-item">
+                        <a href="/admin/" class="sidebar-link {{ request()->is('admin')? 'active' : '' }}"><i class="ri-dashboard-fill"></i> Dashboard</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="/admin/user" class="sidebar-link {{ request()->is('admin/user')? 'active' : '' }}"><i class="ri-group-fill"></i> Users</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="" class="sidebar-link {{ request()->is('admin/item')? 'active' : '' }}"><i class="ri-instance-fill"></i> Items</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="" class="sidebar-link {{ request()->is('admin/categories')? 'active' : '' }}"><i class="ri-bookmark-fill"></i> Categories</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="" class="sidebar-link"><i class="ri-history-fill {{ request()->is('admin/history')? 'active' : '' }}"></i> History Loan</a>
+                    </li>
+                </ul>
+                <div class="sidebar-footer">
+                    <a href="" class="sidebar-link text-danger"><i class="ri-logout-box-fill"></i> LogOut</a>
+                </div>
+            </div>
+        </aside>
+        <!-- main -->
+        <div class="main">
+            <nav class="navbar navbar-expand">
+                Admin <i class="ri-arrow-right-s-line"></i> <span class="text-black">{{ $link }}</span>
+            </nav>
+            <main class="p-3">
+                <div class="container-fluid">
+                    {{ $slot }}
+                </div>
+            </main>
+        </div>
+    </div>

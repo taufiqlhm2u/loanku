@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\AdminController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -7,8 +8,6 @@ Route::get('/', function () {
 });
 
 // admin
-Route::get('/admin', function() {
-    return view('admin.dashboard');
-});
+Route::get('/admin', [AdminController::class, 'index']);
 
 require_once 'admin/user.php';

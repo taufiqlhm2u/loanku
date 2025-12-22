@@ -12,7 +12,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return 'halo semua';
+        return view('admin.dashboard');
     }
 
     /**
