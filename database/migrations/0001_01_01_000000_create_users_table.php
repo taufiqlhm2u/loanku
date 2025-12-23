@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->enum('role', ['admin', 'petugas', 'peminjam']);
+            $table->string('password');
+            $table->enum('role', ['admin', 'staff', 'borrower']);
             $table->dateTime('deleted_at')->nullable();
             $table->timestamps();
         });

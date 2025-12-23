@@ -12,11 +12,11 @@ class item extends Model
 
     public function category()
     {
-        $this->belongsTo('App\Models\item');
+        return $this->belongsTo('App\Models\item');
     }
 
-    public function loan()
+    public function item_loan()
     {
-        $this->belongsToMany('App\Models\loan');
+        return $this->hasMany('App\Models\item_loan');
     }
 }

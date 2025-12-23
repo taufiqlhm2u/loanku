@@ -14,6 +14,6 @@ class User extends Authenticatable
 
     public function loan() 
     {
-        $this->hasMany('App\Models\loan');
+        return $this->hasMany('App\Models\loan');
     }
 }

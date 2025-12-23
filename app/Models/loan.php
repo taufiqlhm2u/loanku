@@ -10,6 +10,11 @@ class loan extends Model
 
     public function user()
     {
-        $this->belongsTo('App\Models\user');
+        return $this->belongsTo('App\Models\User');
+    }
+
+    public function item_loan() 
+    {
+        return $this->hasMany('App\Models\item_loan');
     }
 }

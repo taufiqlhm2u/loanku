@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->date('loan_date');
             $table->date('due_date');
-            $table->enum('status', ['dipinjam', 'selesai']);
+            $table->enum('status', ['borrowed', 'returned']);
             $table->dateTime('deleted_at')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
