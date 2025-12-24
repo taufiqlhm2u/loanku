@@ -1,0 +1,54 @@
+.quick-access .info {
+    width: 150px;
+    padding: 8px 10px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 0 2px rgb(121, 120, 120);
+}
+
+.quick-access .info i {
+    font-size: 34px;
+}
+
+.quick-access .user i {
+    color: #0D6EFD;
+}
+
+.quick-access .item i {
+    color: #6F42C1;
+}
+
+.quick-access .category i {
+    color: #FD7E14;
+}
+
+.quick-access .borrow i {
+    color: #FFC107;
+}
+
+.quick-access .return i {
+    color: #198754;
+}
+
+.quick-access .info p {
+    margin-bottom: -8px;
+}
+.quick-access .info .amount {
+    color: #5a5a5a;
+    font-size: 14px;
+}
+
+.quick-access .info:hover {
+background-color: var(--bg-purple);
+transition: all 0.3s ease;
+transform: translateY(-5px);
+}
+
+.table thead th {
+  background-color: #343A40 !important;
+  color: #fff;
+}
+
+table tbody td ol {
+    list-style: none;
+}

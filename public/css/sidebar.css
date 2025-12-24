@@ -1,5 +1,11 @@
+:root {
+    --bg-utama : #F4F4F4;
+    --purple : #540863;
+    --bg-purple : #eeeaf4;
+}
+
 body {
-    background-color: #f9f9f9;
+    background-color: var(--bg-utama);
 }
 
 .sidebar-item {
@@ -7,9 +13,20 @@ body {
 }
 
 .main {
-    min-height: 100vh;
+    max-height: 100vh;
     width: 100%;
-    overflow: hidden;
+    overflow: auto;
+}
+
+.main nav {
+    position: fixed;
+    background-color: var(--bg-utama);
+    width: 100%;
+    
+}
+
+.main main {
+    margin-top: 30px;
 }
 
 #sidebar {
@@ -53,18 +70,18 @@ body {
     width: 100%;
     border-radius: 6px;
     color: #3c3c3c;
-    background: linear-gradient(#540863 0 0) var(--p, 0) / var(--p, 0) no-repeat;
+    background: linear-gradient(var(--purple) 0 0) var(--p, 0) / var(--p, 0) no-repeat;
     transition: 0.4s, background-position 0s;
 }
 
 .sidebar-center .sidebar-nav .sidebar-item .active {
-    color: #540863;
-    background-color: #eeeaf4;
+    color: var(--purple);
+    background-color: var(--bg-purple);
 }
 
 .sidebar-center .sidebar-nav .sidebar-item .sidebar-link:hover {
     --p: 100%;
-    color: #eeeaf4;
+    color: var(--bg-purple);
 }
 
 .sidebar-center .sidebar-footer .sidebar-link {

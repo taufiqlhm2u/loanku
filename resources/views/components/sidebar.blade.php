@@ -1,5 +1,5 @@
 @push('css')
-        <link rel="stylesheet" href="{{ asset('css/admin/sidebar.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
     @endpush
     <div class="d-flex">
         <!-- sidebar -->
@@ -35,7 +35,7 @@
             <nav class="navbar navbar-expand">
                 Admin <i class="ri-arrow-right-s-line"></i> <span class="text-black">{{ $link }}</span>
             </nav>
-            <main class="p-3">
+            <main class="p-2">
                 <div class="container-fluid">
                     {{ $slot }}
                 </div>
