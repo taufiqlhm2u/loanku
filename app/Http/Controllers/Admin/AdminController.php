@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Models\item;
 use App\Models\loan;
 use App\Models\User;
-use App\Models\item;
 use App\Models\category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AdminController extends Controller
 {
@@ -31,6 +32,7 @@ class AdminController extends Controller
             'return' => $return,
             'last' => $history
         ];
+
         return view('admin.dashboard', $data);
     }
 }

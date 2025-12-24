@@ -1,13 +1,14 @@
 @push('css')
         <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
     @endpush
+
     <div class="d-flex">
         <!-- sidebar -->
         <aside id="sidebar">
-            <div class="sidebar-logo">
-                <a href="">Loan<span style="color:#540863;">ku</span></a>
+            <div class="sidebar-logo" data-aos="{{ $animation ?? 'fade-down' }}">
+                <a href="" >Loan<span style="color:#540863;">ku</span></a>
             </div>
-            <div class="sidebar-center">
+            <div class="sidebar-center" data-aos="fade-right">
                 <ul class="sidebar-nav p-0">
                     <li class="sidebar-item">
                         <a href="/admin/" class="sidebar-link {{ request()->is('admin')? 'active' : '' }}"><i class="ri-dashboard-fill"></i> Dashboard</a>
@@ -26,13 +27,16 @@
                     </li>
                 </ul>
                 <div class="sidebar-footer">
-                    <a href="" class="sidebar-link text-danger"><i class="ri-logout-box-fill"></i> LogOut</a>
+                    <form action="/logout" method="post">
+                        @csrf
+                        <button type="submit" class="sidebar-link text-danger"><i class="ri-logout-box-fill"></i> LogOut</button>
+                    </form>
                 </div>
             </div>
         </aside>
         <!-- main -->
         <div class="main">
-            <nav class="navbar navbar-expand">
+            <nav class="navbar navbar-expand" data-aos="fade-down">
                 Admin <i class="ri-arrow-right-s-line"></i> <span class="text-black">{{ $link }}</span>
             </nav>
             <main class="p-2">

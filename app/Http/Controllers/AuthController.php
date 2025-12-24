@@ -1,31 +1,38 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
-class UserController extends Controller
+class AuthController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function login()
     {
-        $title = 'User';
-
-        $data = [
-            'title' => $title
-        ];
-        return view('admin.user', $data);
+        return view('auth.login');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    
+    public function auth()
     {
-        //
+        $user = User::where('id', '=', 1)->first();
+        Auth::login($user);
+        session()->regenerate();
+        Alert::info('welcome');
+        return redirect()->route('adminDash');
+    }
+
+    public function logout ()
+    {
+        Auth::logout();
+        session()->invalidate();
+        session()->regenerateToken();
+        return redirect()->route('login');
     }
 
     /**

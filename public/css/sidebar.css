@@ -21,8 +21,7 @@ body {
 .main nav {
     position: fixed;
     background-color: var(--bg-utama);
-    width: 100%;
-    
+    width: 100%; 
 }
 
 .main main {
@@ -98,6 +97,10 @@ body {
 .sidebar-center .sidebar-footer .sidebar-link:hover {
     background-color: #ffe1e1;
     transition: all 0.3s ease-in-out;
+}
+
+.sidebar-footer button {
+    border: none;
 }
 
 .main .navbar {
