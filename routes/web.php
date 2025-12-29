@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\AdminController;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -10,13 +10,13 @@ Route::middleware('guest')->group(function () {
         return redirect()->route('login');
     });
     // auth
-    Route::controller(AuthController::class)->group(function() {
+    Route::controller(LoginController::class)->group(function() {
         Route::get('/login', 'login')->name('login');
-        Route::get('/auth', 'auth');
+        Route::post('/login', 'store');
     });
 });
 
-Route::post('/logout', [AuthController::class, 'logout']);
+Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::middleware('auth')->group(function () {
 
@@ -27,4 +27,7 @@ Route::get('/admin/dashboard', function() {
 });
 
 require_once 'admin/user.php';
+
+// borrower
+require 'borrower.php';
 });
