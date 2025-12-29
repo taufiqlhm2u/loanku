@@ -7,8 +7,10 @@
     <title>{{ $title }}</title>
     <!-- bootstap -->
     <link rel="stylesheet" href="{{ asset('bootsrap/css/bootstrap.css') }}">
-    <script scr="{{ asset('bootsrap/js/bootstrap.js') }}"></script>
-    <script scr="{{ asset('bootsrap/js/bootstrap.bundle.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('bootsrap/css/bootstrap.min.css') }}">
+    <script src="{{ asset('bootsrap/js/bootstrap.js') }}"></script>
+    <script src="{{ asset('bootsrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('bootsrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- remix icon -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet" />
     <!-- animation on scroll -->

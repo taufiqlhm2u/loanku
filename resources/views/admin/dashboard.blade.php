@@ -1,14 +1,16 @@
 <x-layout>
     <x-slot:title>{{ $title }}</x-slot:title>
     @push('css')
-        <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/admin/dashboard.css') }}">
     @endpush
     <x-sidebar>
         <x-slot:link>{{ $title }}</x-slot:link>
 
-        <div class="quick-access bg-white shadow-sm px-4 py-3 rounded-3" data-aos="zoom-out">
-            <h5 class="fw-medium mb-3">Quick Access</h5>
-            <div class="d-flex justify-content-between flex-wrap gap-4">
+        <div class="card quick-access bg-white shadow-sm px-4 py-3 rounded-3" data-aos="zoom-out">
+            <div class="card-header">
+                <h5 class="fw-medium mb-3">Quick Access</h5>
+            </div>
+            <div class="card-body d-flex justify-content-between flex-wrap gap-4">
                 <div class="info user">
                     <i class="ri-group-fill"></i>
                     <p class="fw-medium">Users</p>
@@ -38,7 +40,7 @@
         </div>
 
         <div class="card mt-5 bg-white rounded-3 py-3 px-4 shadow-sm" data-aos="fade-up-left">
-            <div class="card-header bg-white">
+            <div class="card-header bg-white ">
                 <h5 class="fw-medium">Recent Loan</h5>
             </div>
            <div class="card-body">
