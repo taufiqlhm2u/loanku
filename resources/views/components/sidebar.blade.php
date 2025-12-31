@@ -15,7 +15,7 @@
                             class="ri-dashboard-fill"></i> Dashboard</a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="/admin/user" class="sidebar-link {{ request()->is('admin/user') ? 'active' : '' }}"><i
+                    <a href="/admin/users" class="sidebar-link {{ request()->is('admin/users*') ? 'active' : '' }}"><i
                             class="ri-group-fill"></i> Users</a>
                 </li>
                 <li class="sidebar-item">

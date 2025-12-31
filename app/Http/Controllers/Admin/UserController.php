@@ -16,7 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $title = 'User';
+        $title = 'Users';
         $users = User::orderBy('name', 'ASC')->where('role', '!=', 'admin')->paginate(5);
 
         $data = [
@@ -24,14 +24,6 @@ class UserController extends Controller
             'users' => $users
         ];
         return view('admin.user.user', $data);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -69,45 +61,94 @@ class UserController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        //
+        $request->validate([
+            'fullname' => 'required',
+            'email' => 'required|email',
+            'role' => 'required'
+        ]);
+
+        try {
+            if ($request->password == '') {
+                User::where('id', '=', $request->idUser)->update([
+                    'name' => $request->fullname,
+                    'email' => $request->email,
+                    'role' => $request->role
+                ]);
+            } else {
+                User::where('id', '=', $request->idUser)->update([
+                    'name' => $request->fullname,
+                    'email' => $request->email,
+                    'password' => Hash::make($request->password),
+                    'role' => $request->role
+                ]);
+            }
+            Alert::success('Success!', 'The user data has been update successfully.');
+            return redirect()->route('userPage');
+        } catch (Exception $e) {
+             Alert::error('Error!', 'Failed to update the data.');
+            return redirect()->route('userPage');
+        }
     }
 
     public function delete(string $id)
     {
         User::find($id)->delete();
-        Alert::success('Success', 'Data dimasukan ke trash');
+        Alert::success('Success!', 'The user data has been trashed.');
         return redirect()->route('userPage');
     }
 
     public function trash()
     {
-
+        $title = 'Users';
+        $trash = User::onlyTrashed()->get();
+        $data = [
+            'title' => $title,
+            'trash' => $trash
+        ];
+        return view('admin.user.trash', $data);
     }
+
+    public function restore(string $id)
+    {
+        User::where('id', '=', $id)->onlyTrashed()->restore();
+        Alert::success('Success!', 'The user data has been restored.');
+        return redirect()->route('userPage');
+    }
+
+    public function restoreAll()
+    {
+        User::onlyTrashed()->restore();
+        Alert::success('Success!', 'All data have been restored.');
+        return redirect()->route('userPage');
+    }
+
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            User::where('id', '=', $id)->onlyTrashed()->forceDelete();
+            Alert::success('Success', 'Successfully deleted');
+            return redirect()->route('userPage');
+        } catch (Exception $e) {
+            Alert::error('Error', 'The data has foreign key');
+            return redirect()->route('userPage');
+        }
+    }
+    public function destroyAll()
+    {
+        try {
+            User::onlyTrashed()->forceDelete();
+            Alert::success('Success', 'Successfully deleted');
+            return redirect()->route('userPage');
+        } catch (Exception $e) {
+            Alert::error('Error', 'somedata have foreign key');
+            return redirect()->route('userPage');
+        }
     }
 }
