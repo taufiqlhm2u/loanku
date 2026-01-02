@@ -19,7 +19,7 @@
                             class="ri-group-fill"></i> Users</a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="" class="sidebar-link {{ request()->is('admin/item') ? 'active' : '' }}"><i
+                    <a href="{{ route('itemPage') }}" class="sidebar-link {{ request()->is('admin/items*') ? 'active' : '' }}"><i
                             class="ri-instance-fill"></i> Items</a>
                 </li>
                 <li class="sidebar-item">

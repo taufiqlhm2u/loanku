@@ -33,6 +33,7 @@ Route::get('/admin/dashboard', function() {
 });
 
 require_once 'admin/user.php';
+require_once 'admin/item.php';
 
 // borrower
 require 'borrower.php';

@@ -12,7 +12,7 @@ class item extends Model
 
     public function category()
     {
-        return $this->belongsTo('App\Models\item');
+        return $this->belongsTo('App\Models\category');
     }
 
     public function item_loan()
