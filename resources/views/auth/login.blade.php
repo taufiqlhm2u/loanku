@@ -14,7 +14,7 @@
                 @csrf
                 <div class="mb-3 form-floating has-validation">
                     <input type="text" class="form-control @error('email') is-invalid
-                    @enderror" id="email" placeholder="email" name="email">
+                    @enderror" id="email" placeholder="email" name="email" value="{{ old('email') }}">
                     <label for="email" class="form-label">Enter your email</label>
 
                     @error('email')
@@ -43,10 +43,12 @@
                     </div>
                 </div>
 
-                <div class="">
+                <div class="mb-3">
                     <button type="submit" class="btn btn-primary">Log In</button>
                 </div>
             </form>
+
+            <p class="register">Don't have an account? <a href="{{ route('register') }}">Register</a></p>
         </div>
     </main>
 
