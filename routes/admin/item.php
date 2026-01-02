@@ -7,7 +7,7 @@ Route::prefix('/admin/items')->group(function () {
         Route::get('/', 'index')->name('itemPage');
         Route::post('/', 'store');
         Route::put('/update/{id}', 'update')->name('itemUpdate');
-        Route::delete('/delete', 'delete')->name('itemDelete');
+        Route::delete('/delete/{id}', 'delete')->name('itemDelete');
         Route::get('/trash', 'trash')->name('itemTrash');
         Route::post('/restore/{id}', 'restore')->name('itemRestore');
         Route::post('/restore-all', 'restoreAll')->name('itemRestoreAll');

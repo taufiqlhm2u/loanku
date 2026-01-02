@@ -48,7 +48,7 @@ class ItemController extends Controller
                 'category_id' => $request->category
             ]);
 
-            Alert::success('Success!', 'The user data has been saved successfully.');
+            Alert::success('Success!', 'The item data has been saved successfully.');
             return redirect()->route('itemPage');
         } catch(Exception $e) {
             Alert::error('Error!', 'Failed to save the data.');
@@ -61,7 +61,16 @@ class ItemController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $item = Item::find($id)->update([
+            'name' => $request->item,
+            'category_id' => $request->category,
+            'stock' => $request->stock,
+            'condition' => $request->condition,
+        ]);
+
+         Alert::success('Success!', 'The item data has been updated successfully.');
+         return redirect()->route('itemPage');
+        
     }
 
     /**
@@ -69,7 +78,9 @@ class ItemController extends Controller
      */
     public function delete(string $id) 
     {
-
+        Item::find($id)->delete();
+        Alert::success('Success!', 'Item has move in trash.');
+        return redirect()->route('itemPage');
     }
 
     /**
@@ -77,7 +88,12 @@ class ItemController extends Controller
      */
     public function trash()
     {
-
+        $t = item::onlyTrashed()->get();
+        $data = [
+            'title' => 'Items',
+            'trash' => $t
+        ];
+        return view('admin.item.trash', $data);
     }
 
     /**

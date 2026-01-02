@@ -18,6 +18,10 @@ body {
     overflow: auto;
 }
 
+.main::-webkit-scrollbar {
+    display: none;
+}
+
 .main nav {
     position: sticky;
     top: 0;
